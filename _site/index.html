@@ -2,21 +2,22 @@
   <head>
     <title>CreateJS game</title>
     <meta charset="utf-8">
-    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script> 
   </head>
-  <body onload="init();">
+  <body onload="loadSound();">
 
-    <canvas id="testCanvas" width="500" height="500"></canvas>
+    <!--<canvas id="testCanvas" width="500" height="500"></canvas>-->
+    <button onclick="playSound();">Play Sound</button>
 
+  <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script> 
   <script>
-    function init() {
-      var stage = new createjs.Stage("testCanvas");
-      var circle = new createjs.Shape();
-      circle.graphics.beginFill("Red").drawCircle(0, 0, 90);
-      circle.x = 250;
-      circle.y = 250;
-      stage.addChild(circle);
-      stage.update();
+
+    createjs.Sound.alternateExtensions = ["mp3"];
+
+    function loadSound() {  
+      createjs.Sound.registerSound("assets/powerup.wav", "powerup")
+    }
+    function playSound() {
+      createjs.Sound.play("powerup");
     }
   
   </script>    
